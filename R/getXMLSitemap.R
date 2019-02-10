@@ -1,7 +1,7 @@
 #' getXMLSitemap
 #'
 #' @param urltocheck direct xml sitemap url or hostname string of the website you want to find xml sitemap from
-#' @param user_agent ser agent string to http request
+#' @param user_agent User agent string to http request
 #'
 #' @return dataframe
 #' @export
