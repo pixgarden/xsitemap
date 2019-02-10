@@ -46,6 +46,11 @@ getXMLSitemap <- function(urltocheck, user_agent) {
 
     request <- GET(urltocheck, user_agent(user_agent))
 
+    if(request$status_code != 200 && request$status_code != 301){
+      warning(paste("xml sitemap is not accessible (HTTP:",request$status_code))
+      return(NULL)
+    }
+
     xml_doc <- xmlParse(request, encoding = "UTF-8")
 
 
