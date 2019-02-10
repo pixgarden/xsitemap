@@ -9,7 +9,7 @@ getXMLSitemap(urltocheck, user_agent)
 \arguments{
 \item{urltocheck}{direct xml sitemap url or hostname string of the website you want to find xml sitemap from}
 
-\item{user_agent}{ser agent string to http request}
+\item{user_agent}{User agent string to http request}
 }
 \value{
 dataframe

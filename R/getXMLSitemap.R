@@ -16,7 +16,7 @@ getXMLSitemap <- function(urltocheck, user_agent) {
   URL <- url_parse(urltocheck)
 
 
-  if (is.na(URL$path)) {
+  if (is.na(URL$path) && !is.na(URL$domain)) {
     message("Searching for XML Sitemap URL...")
 
 
@@ -40,7 +40,7 @@ getXMLSitemap <- function(urltocheck, user_agent) {
 
 
 
-  } else if (grepl(re_realurl, urltocheck)) {
+  } else if (!is.na(URL$path)) {
     message(paste("Reaching for XML sitemap...", urltocheck))
 
 
