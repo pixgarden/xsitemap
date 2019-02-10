@@ -1,14 +1,12 @@
 #' checkWordpressXMLSitemaps
 #'
 #' check classic wordpress urls http code and return it inside the original data frame
-#' @param domain
-#' @param user_agent
+#' @param domain domain name string
 #'
 #' @return data frame
 #' @export
 #'
-#' @examples
-checkWordpressXMLSitemaps <- function(domain, user_agent) {
+checkWordpressXMLSitemaps <- function(domain) {
 
   wordpress_paths <-
     c("catalog_entries-sitemap.xml",
@@ -30,6 +28,6 @@ checkWordpressXMLSitemaps <- function(domain, user_agent) {
     loc = paste0(domain,wordpress_paths),
     stringsAsFactors = FALSE
   )
-  getXMLSitemapHTTP(urls, user_agent)
+  getXMLSitemapHTTP(urls)
 
 }

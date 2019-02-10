@@ -5,12 +5,11 @@
 #'
 #' ??
 #' @param urltocheck hostname string of the website you want to guess xml sitemap url
-#' @param user_agent user agent string to http request
 #'
 #' @return dataframe
 #' @export
 #'
-guessXMLSitemap <- function(urltocheck, user_agent) {
+guessXMLSitemap <- function(urltocheck) {
 
   message("Guessing for XML Sitemap URL...")
   test_paths <-
@@ -23,10 +22,8 @@ guessXMLSitemap <- function(urltocheck, user_agent) {
     )
 
 
-  if (missing(user_agent)) {
     user_agent <-
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
-  }
 
   for (paths in test_paths) {
     cat(paths)

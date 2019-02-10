@@ -14,5 +14,6 @@ VignetteBuilder: knitr
 Imports: 
     httr,
     stringr,
-    XML
+    XML,
+    urltools
 RoxygenNote: 6.1.1

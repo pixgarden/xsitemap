@@ -4,12 +4,10 @@
 \alias{getXMLSitemap}
 \title{getXMLSitemap}
 \usage{
-getXMLSitemap(urltocheck, user_agent)
+getXMLSitemap(urltocheck)
 }
 \arguments{
 \item{urltocheck}{direct xml sitemap url or hostname string of the website you want to find xml sitemap from}
-
-\item{user_agent}{User agent string to http request}
 }
 \value{
 dataframe

@@ -4,12 +4,10 @@
 \alias{guessXMLSitemap}
 \title{Title guessXMLSitemap}
 \usage{
-guessXMLSitemap(urltocheck, user_agent)
+guessXMLSitemap(urltocheck)
 }
 \arguments{
 \item{urltocheck}{hostname string of the website you want to guess xml sitemap url}
-
-\item{user_agent}{user agent string to http request}
 }
 \value{
 dataframe

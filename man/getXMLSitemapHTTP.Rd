@@ -4,12 +4,10 @@
 \alias{getXMLSitemapHTTP}
 \title{getXMLSitemapHTTP}
 \usage{
-getXMLSitemapHTTP(sitemap, user_agent)
+getXMLSitemapHTTP(sitemap)
 }
 \arguments{
 \item{sitemap}{dataframe}
-
-\item{user_agent}{User agent string to http request}
 }
 \value{
 dataframe

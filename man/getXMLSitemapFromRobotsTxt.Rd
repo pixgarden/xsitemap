@@ -5,12 +5,10 @@
 \title{getXMLSitemapFromRobotsTxt
 ceci est un description tres partiel}
 \usage{
-getXMLSitemapFromRobotsTxt(urltocheck, user_agent)
+getXMLSitemapFromRobotsTxt(urltocheck)
 }
 \arguments{
 \item{urltocheck}{hostname string of the website you want to find xml sitemap from robots}
-
-\item{user_agent}{user agent string to http request}
 }
 \value{
 string

@@ -4,10 +4,10 @@
 \alias{checkWordpressXMLSitemaps}
 \title{checkWordpressXMLSitemaps}
 \usage{
-checkWordpressXMLSitemaps(domain, user_agent)
+checkWordpressXMLSitemaps(domain)
 }
 \arguments{
-\item{user_agent}{}
+\item{domain}{domain name string}
 }
 \value{
 data frame

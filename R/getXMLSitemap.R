@@ -1,16 +1,13 @@
 #' getXMLSitemap
 #'
 #' @param urltocheck direct xml sitemap url or hostname string of the website you want to find xml sitemap from
-#' @param user_agent User agent string to http request
 #'
 #' @return dataframe
 #' @export
 #'
-getXMLSitemap <- function(urltocheck, user_agent) {
-  if (missing(user_agent)) {
+getXMLSitemap <- function(urltocheck) {
     user_agent <-
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
-  }
 
 
   URL <- url_parse(urltocheck)
@@ -22,12 +19,12 @@ getXMLSitemap <- function(urltocheck, user_agent) {
 
     # Reaching for robots.txt to find XML Sitemap
 
-    xmlsitemap_from_robots <- getXMLSitemapFromRobotsTxt(urltocheck, user_agent)
+    xmlsitemap_from_robots <- getXMLSitemapFromRobotsTxt(urltocheck)
 
     if (xmlsitemap_from_robots != "") {
       getXMLSitemap(xmlsitemap_from_robots)
     } else {
-      xmlsitemap_from_guessing <- guessXMLSitemap(urltocheck, user_agent)
+      xmlsitemap_from_guessing <- guessXMLSitemap(urltocheck)
       if (!is.null(xmlsitemap_from_guessing)) {
         getXMLSitemap(xmlsitemap_from_guessing)
 
@@ -94,8 +91,7 @@ getXMLSitemap <- function(urltocheck, user_agent) {
         individual_sitemap <-  xml_data[i]$sitemap$loc
         message(paste0("\n", i, " >>> ", individual_sitemap))
         new_urls <- getXMLSitemap(individual_sitemap)
-        new_urls$origin <- url_parse(individual_sitemap)$path
-        #new_urls$id <- i
+        new_urls$origin <- urltools::url_parse(individual_sitemap)$path
         urls <- rbind(urls, new_urls)
       }
       return(urls)
