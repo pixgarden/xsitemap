@@ -13,7 +13,7 @@ devtools::install_github("pixgarden/xsitemap")
 ```
 
 ## Getting started
-load the majesticR package :
+load the xsitemap package :
 ```
 library(xsitemap)
 ```
