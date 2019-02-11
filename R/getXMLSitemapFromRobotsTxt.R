@@ -11,7 +11,15 @@ getXMLSitemapFromRobotsTxt <- function(urltocheck) {
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 
   if ("/robots.txt" != substr(urltocheck, nchar(urltocheck) - 10, nchar(urltocheck))) {
+
+    if("/" != substr(urltocheck, nchar(urltocheck),  nchar(urltocheck))){
+
+      urltocheck <- paste0(urltocheck, "/robots.txt")
+
+    }else{
+
     urltocheck <- paste0(urltocheck, "robots.txt")
+    }
   }
 
 
