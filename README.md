@@ -36,7 +36,7 @@ todo example
 todo description
 ```
 todo example
-```
+
 ```
 
 ### 4. checkWordpressXMLSitemaps()
