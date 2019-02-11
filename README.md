@@ -46,9 +46,6 @@ todo example
 ```
 
 
-
-.R
-
 ## Feedbacks
 Questions and feedbacks welcome!
 
