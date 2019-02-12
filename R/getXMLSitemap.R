@@ -89,10 +89,12 @@ getXMLSitemap <- function(urltocheck) {
 
       for (i in 1:nb_children) {
         individual_sitemap <-  xml_data[i]$sitemap$loc
+        if(!is.na(individual_sitemap)){
         message(paste0("\n", i, " >>> ", individual_sitemap))
         new_urls <- getXMLSitemap(individual_sitemap)
         new_urls$origin <- urltools::url_parse(individual_sitemap)$path
         urls <- rbind(urls, new_urls)
+        }
       }
       return(urls)
 
