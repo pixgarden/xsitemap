@@ -18,7 +18,7 @@ getXMLSitemapHTTP <- function(sitemap) {
   for (i in 1:nrow(sitemap)) {
     #progress.bar = TRUE
     cat(".")
-    request <- HEAD(sitemap[i,]$loc, user_agent(user_agent))
+    request <- HEAD(sitemap[i,]$loc, user_agent(user_agent),  config(followlocation = 0))
     sitemap[i,]$http <- request$status_code
   }
   return(sitemap)
