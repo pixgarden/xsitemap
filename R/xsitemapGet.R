@@ -6,8 +6,8 @@
 #' @export
 #'
 xsitemapGet <- function(urltocheck) {
-    user_agent <-
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+  user_agent <-
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
 
 
   URL <- url_parse(urltocheck)
@@ -43,8 +43,11 @@ xsitemapGet <- function(urltocheck) {
 
     request <- GET(urltocheck, user_agent(user_agent))
 
-    if(request$status_code != 200 && request$status_code != 301){
-      warning(paste("xml sitemap is not accessible (HTTP:",request$status_code))
+    if (request$status_code != 200 && request$status_code != 301) {
+      warning(paste(
+        "xml sitemap is not accessible (HTTP:",
+        request$status_code
+      ))
       return(NULL)
     }
 
@@ -58,12 +61,18 @@ xsitemapGet <- function(urltocheck) {
     nb_children <- length(xml_data)
     #message(paste(" ", nb_children, " URL(s) found"))
 
-    test_url <- lapply(xml_data, `[[`, 1)[1]
+    #test_url <- lapply(xml_data, `[[`, 1)[1]
+    test_url <- xml_data$sitemap$loc
     #message(paste("test_url >", test_url))
-    url_split <- strsplit(toString(test_url), "\\.")
+
+    test_url_path <- try(parse_url(test_url)$path, silent = TRUE)
 
 
-    if ("xml" == mapply(`[`, url_split, lengths(url_split))) {
+
+
+    if (".xml" == substr(test_url_path,
+                         nchar(test_url_path) - 3,
+                         nchar(test_url_path))) {
       if (nb_children < 50001) {
         message(paste(
           "sitemap index detected - ",
@@ -89,11 +98,22 @@ xsitemapGet <- function(urltocheck) {
 
       for (i in 1:nb_children) {
         individual_sitemap <-  xml_data[i]$sitemap$loc
-        if(!is.null(individual_sitemap)){
-        message(paste0("\n", i, " >>> ", individual_sitemap))
-        new_urls <- xsitemapGet(individual_sitemap)
-        new_urls$origin <- urltools::url_parse(individual_sitemap)$path
-        urls <- rbind(urls, new_urls)
+        if (!is.null(individual_sitemap)) {
+          message(paste0("\n", i, " >>> ", individual_sitemap))
+          new_urls <- xsitemapGet(individual_sitemap)
+          parsed_urls <- urltools::url_parse(individual_sitemap)
+
+          if(!is.na(parsed_urls$parameter)){
+            new_urls$origin <-
+              paste0(parsed_urls$path,"?",parsed_urls$parameter)
+          }else{
+            new_urls$origin <-
+              parsed_urls$path
+
+          }
+
+
+          urls <- rbind(urls, new_urls)
         }
       }
       return(urls)
