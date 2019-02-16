@@ -1,4 +1,4 @@
-#' Title guessXMLSitemap
+#' Title xsitemapGuess
 #'
 #'surement la description la plus courte du monde
 #' ????
@@ -9,7 +9,7 @@
 #' @return dataframe
 #' @export
 #'
-guessXMLSitemap <- function(urltocheck) {
+xsitemapGuess <- function(urltocheck) {
 
   message("Guessing for XML Sitemap URL...")
   test_paths <-

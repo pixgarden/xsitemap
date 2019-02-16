@@ -1,4 +1,4 @@
-#' getXMLSitemapHTTP
+#' xsitemapCheckHTTP
 #'
 #' Check if xml sitemap urls send a 200 http code
 #'
@@ -7,8 +7,8 @@
 #' @return dataframe
 #' @export
 #'
-getXMLSitemapHTTP <- function(sitemap) {
-  message(paste("getXMLSitemapHTTP :", nrow(sitemap), " URL(s) to check"))
+xsitemapCheckHTTP <- function(sitemap) {
+  message(paste("xsitemapCheckHTTP :", nrow(sitemap), " URL(s) to check"))
 
     user_agent <-
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"

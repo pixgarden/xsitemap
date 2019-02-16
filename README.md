@@ -20,26 +20,26 @@ library(xsitemap)
 
 ## Main xsitemap Functions
 
-### 1. getXMLSitemap()
+### 1. xsitemapGet()
 todo description
 ```
 todo example
 ```
 
-### 2. guessXMLSitemap.R()
+### 2. xsitemapGuess.R()
 todo description
 ```
 todo example
 ```
 
-### 3. getXMLSitemapFromRobotsTxt()
+### 3. xsitemapGetFromRobotsTxt()
 todo description
 ```
 todo example
 
 ```
 
-### 4. checkWordpressXMLSitemaps()
+### 4. xsitemapGetFromRobotsTxt()
 todo description
 ```
 todo example
