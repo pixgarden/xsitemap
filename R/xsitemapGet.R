@@ -67,7 +67,7 @@ xsitemapGet <- function(urltocheck) {
 
     test_url_path <- try(parse_url(test_url)$path, silent = TRUE)
 
-
+    test_url_path <- gsub("\\.gz$", "", test_url_path) #removing compression gz extension
 
 
     if (".xml" == substr(test_url_path,
