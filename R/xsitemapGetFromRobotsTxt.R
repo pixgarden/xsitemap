@@ -27,7 +27,7 @@ xsitemapGetFromRobotsTxt <- function(urltocheck) {
       message("XML sitemap url detect inside robots.txt")
       #library(stringr)
       xml_url <-
-        stringr::str_match(robotstext, "Sitemap: (.*)(\\n|$)")[, 2]
+        stringr::str_match(robotstext, "Sitemap: (.*)(\\n|$|\\r)")[, 2]
       message(xml_url)
       return(paste0("", xml_url))
 
