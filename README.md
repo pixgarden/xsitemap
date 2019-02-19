@@ -22,14 +22,18 @@ library(xsitemap)
 
 ### 1. xsitemapGet()
 This is the main function. Add domain hostname or an XML URL as a parameter 
-```xsitemap_urls <- xsitemapGet("https://www.nationalarchives.gov.uk/")
+```
+xsitemap_urls <- xsitemapGet("https://www.nationalarchives.gov.uk/")
+
 ```
 
 ### 2. xsitemapCheckHTTP()
 
 Will check if sitemap urls are sending 200 http code.Beware it can take some time depending on the number of URLs
 
-```xsitemap_urls_http <- xsitemapCheckHTTP(xsitemap_urls)
+```
+xsitemap_urls_http <- xsitemapCheckHTTP(xsitemap_urls)
+
 ```
 
 
