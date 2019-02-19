@@ -13,7 +13,7 @@ devtools::install_github("pixgarden/xsitemap")
 ```
 
 ## Getting started
-load the xsitemap package :
+load xsitemap package
 ```
 library(xsitemap)
 ```
