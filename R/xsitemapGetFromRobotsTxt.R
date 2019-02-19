@@ -23,11 +23,11 @@ xsitemapGetFromRobotsTxt <- function(urltocheck) {
   if (request$status_code == 200) {
     robotstext <- httr::content(request)
 
-    if (stringr::str_detect(robotstext, "\nSitemap:")) {
+    if (stringr::str_detect(robotstext, "(\n|^)Sitemap:")) {
       message("XML sitemap url detect inside robots.txt")
       #library(stringr)
       xml_url <-
-        stringr::str_match(robotstext, "Sitemap: (.*)(\\n|$|\\r)")[, 2]
+        stringr::str_match(robotstext, "(\n|^)Sitemap: (.*)(\\n|$|\\r)")[, 2]
       message(xml_url)
       return(paste0("", xml_url))
 
