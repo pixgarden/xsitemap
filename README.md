@@ -18,32 +18,36 @@ load the xsitemap package :
 library(xsitemap)
 ```
 
-## Main xsitemap Functions
+## xsitemap Functions
 
 ### 1. xsitemapGet()
-todo description
-```
-todo example
-```
-
-### 2. xsitemapGuess.R()
-todo description
-```
-todo example
+This is the main function. Add domain hostname or an XML URL as a parameter 
+```xsitemap_urls <- xsitemapGet("https://www.nationalarchives.gov.uk/")
 ```
 
-### 3. xsitemapGetFromRobotsTxt()
-todo description
-```
-todo example
+### 2. xsitemapCheckHTTP()
 
+Will check if sitemap urls are sending 200 http code.Beware it can take some time depending on the number of URLs
+
+```xsitemap_urls_http <- xsitemapCheckHTTP(xsitemap_urls)
 ```
+
+
+### 3. xsitemapGuess.R()
+Will try to guess XML Urls in this oder:
+- search for xml sitemap inside robots.txt
+- guess a XML sitemap urls
+
 
 ### 4. xsitemapGetFromRobotsTxt()
-todo description
-```
-todo example
-```
+
+Will search for xml sitemap inside robots.txt
+
+
+### 5. xsitemapGuess())
+
+Will guess a XML sitemap urls
+
 
 
 ## Feedbacks
