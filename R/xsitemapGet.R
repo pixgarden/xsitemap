@@ -29,7 +29,7 @@ xsitemapGet <- function(urltocheck) {
         xsitemapGet(xmlsitemap_from_guessing)
 
       } else{
-        warning("Can't find xml sitemap url :(")
+        warning(paste("Can't find xml sitemap url for",urltocheck))
         return(FALSE)
       }
     }
@@ -50,6 +50,8 @@ xsitemapGet <- function(urltocheck) {
       ))
       return(NULL)
     }
+
+
 
     xml_doc <- xmlParse(request, encoding = "UTF-8")
 
@@ -155,7 +157,7 @@ xsitemapGet <- function(urltocheck) {
     }
 
   } else{
-    stop("Mal formatted url")
+    stop(paste("Mal formatted url",urltocheck))
 
     #return NA
   }

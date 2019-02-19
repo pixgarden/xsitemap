@@ -10,7 +10,7 @@
 xsitemapCheckHTTP <- function(sitemap) {
   message(paste("xsitemapCheckHTTP :", nrow(sitemap), " URL(s) to check"))
   if (nrow(sitemap) > 1000) {
-    if (!askYesNo(
+    if (!utils::askYesNo(
       paste("Are you sure you want to crawl", nrow(sitemap), "URLs?"),
       default = TRUE,
       prompts = getOption("askYesNo", gettext(c(
