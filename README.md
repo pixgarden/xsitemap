@@ -38,20 +38,27 @@ xsitemap_urls_http <- xsitemapCheckHTTP(xsitemap_urls)
 
 
 ### 3. xsitemapGuess.R()
-Will try to guess XML Urls in this oder:
-- search for xml sitemap inside robots.txt
-- guess a XML sitemap urls
+
+Will try to guess XML Urls in this order:
+
+sitemap_index.xml, sitemaps.xml, sitemap.xml, sitemap-index.xml", sitemap.xml.gz
 
 
 ### 4. xsitemapGetFromRobotsTxt()
 
-Will search for xml sitemap inside robots.txt
+Will search for xml sitemap URL inside robots.txt
 
 
-### 5. xsitemapGuess())
+### 5. xsitemapCheckWordpress()
 
-Will guess a XML sitemap urls
+Will check classic Wordpress sitemap urls
 
+## Tutorials
+
+/!\ Work in progress /!\ 
+
+English : https://www.gokam.co.uk/xsitemap-package/
+French : https://www.gokam.fr/xsitemap/ (work in )
 
 
 ## Feedbacks
