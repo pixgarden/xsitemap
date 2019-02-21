@@ -58,7 +58,8 @@ Will check classic Wordpress sitemap urls
 /!\ Work in progress /!\ 
 
 English : https://www.gokam.co.uk/xsitemap-package/
-French : https://www.gokam.fr/xsitemap/ (work in )
+
+French : https://www.gokam.fr/xsitemap/
 
 
 ## Feedbacks
