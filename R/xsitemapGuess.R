@@ -1,10 +1,7 @@
 #' Title xsitemapGuess
 #'
-#'surement la description la plus courte du monde
-#' ????
-#'
-#' ??
 #' @param urltocheck hostname string of the website you want to guess xml sitemap url
+#' @param user_agent user agent string
 #'
 #' @return dataframe
 #' @export
