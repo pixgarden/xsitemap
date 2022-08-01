@@ -1,14 +1,16 @@
 #' xsitemapGetFromRobotsTxt
 #' ceci est un description tres partiel
 #' @param urltocheck hostname string of the website you want to find xml sitemap from robots
+#' @param user_agent user agent string
 #'
 #' @return string
 #' @export
 #'
-xsitemapGetFromRobotsTxt <- function(urltocheck) {
-  user_agent <-
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
-
+xsitemapGetFromRobotsTxt <- function(urltocheck, user_agent) {
+  if(missing(user_agent)) {
+    user_agent <-
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36"
+  }
   if ("/robots.txt" != substr(urltocheck, nchar(urltocheck) - 10, nchar(urltocheck))) {
     if ("/" != substr(urltocheck, nchar(urltocheck),  nchar(urltocheck))) {
       urltocheck <- paste0(urltocheck, "/robots.txt")
