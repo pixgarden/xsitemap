@@ -21,14 +21,14 @@ xsitemapGet <- function(urltocheck, user_agent) {
 
     # Reaching for robots.txt to find XML Sitemap
 
-    xmlsitemap_from_robots <- xsitemapGetFromRobotsTxt(urltocheck)
+    xmlsitemap_from_robots <- xsitemapGetFromRobotsTxt(urltocheck, user_agent)
 
     if (xmlsitemap_from_robots != "") {
-      xsitemapGet(xmlsitemap_from_robots)
+      xsitemapGet(xmlsitemap_from_robots, user_agent)
     } else {
-      xmlsitemap_from_guessing <- xsitemapGuess(urltocheck)
+      xmlsitemap_from_guessing <- xsitemapGuess(urltocheck, user_agent)
       if (!is.null(xmlsitemap_from_guessing)) {
-        xsitemapGet(xmlsitemap_from_guessing)
+        xsitemapGet(xmlsitemap_from_guessing, user_agent)
 
       } else{
         warning(paste("Can't find xml sitemap url for",urltocheck))
