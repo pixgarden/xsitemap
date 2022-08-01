@@ -120,6 +120,7 @@ xsitemapGet <- function(urltocheck, user_agent) {
           urls <- rbind(urls, new_urls)
         }
       }
+      rownames(urls) <- NULL
       return(urls)
 
     } else{
@@ -154,7 +155,7 @@ xsitemapGet <- function(urltocheck, user_agent) {
         }
       }
 
-
+      rownames(urls) <- NULL
       return(urls)
     }
 
