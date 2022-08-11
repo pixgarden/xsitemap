@@ -55,7 +55,7 @@ xsitemapGet <- function(urltocheck, user_agent) {
 
 
 
-    xml_doc <- xmlParse(request, encoding = "UTF-8")
+    xml_doc <- xmlParse(request, encoding = "UTF-8", options = NOCDATA)
 
 
 
