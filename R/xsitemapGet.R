@@ -63,20 +63,10 @@ xsitemapGet <- function(urltocheck, user_agent) {
 
     xml_data <- xmlToList(xml_doc)
     nb_children <- length(xml_data)
-    #message(paste(" ", nb_children, " URL(s) found"))
+    
 
-    #test_url <- lapply(xml_data, `[[`, 1)[1]
-    test_url <- xml_data$sitemap$loc
-    #message(paste("test_url >", test_url))
-
-    test_url_path <- try(parse_url(test_url)$path, silent = TRUE)
-
-    test_url_path <- gsub("\\.gz$", "", test_url_path) #removing compression gz extension
-
-
-    if (".xml" == substr(test_url_path,
-                         nchar(test_url_path) - 3,
-                         nchar(test_url_path))) {
+    # Checking if this is a sitemap index structure
+    if (!is.null(xml_data$sitemap$loc)) {
       if (nb_children < 50001) {
         message(paste(
           "sitemap index detected - ",
