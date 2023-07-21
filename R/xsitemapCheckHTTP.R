@@ -32,7 +32,7 @@ xsitemapCheckHTTP <- function(sitemap, user_agent) {
     #progress.bar = TRUE
     cat(".")
     request <-
-      HEAD(sitemap[i,]$loc,
+      HEAD(URLencode(sitemap[i,]$loc),
            user_agent(user_agent),
            config(followlocation = 0))
     sitemap[i,]$http <- request$status_code
